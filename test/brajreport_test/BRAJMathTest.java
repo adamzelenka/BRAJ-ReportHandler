@@ -1,4 +1,4 @@
-package brajreport;
+package brajreport_test;
 /**
  * BRAJMatTesth.java
  *
@@ -11,6 +11,8 @@ package brajreport;
  * @version February 27, 2016: pre-alpha
  */
 
+import java.util.ArrayList;
+import brajreport.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -24,11 +26,16 @@ import static org.junit.Assert.*;
  */
 public class BRAJMathTest {
     
-    public BRAJMathTest() {
+    public BRAJMathTest() 
+    {
+        //this constructor does nothing, and it is left empty.
     }
     
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() 
+    {
+        ArrayList<Report> reportList = new ArrayList<Report>();
+        BRAJMath math = new BRAJMath(reportList);
     }
     
     @AfterClass

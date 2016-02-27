@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class BRAJMath {
     
-    private double[] waitTimeData; //the values of wait times
-    private double[] trafficData;  //the values of traffic
+    private static double[] waitTimeData; //the values of wait times
+    private static double[] trafficData;  //the values of traffic
     private ArrayList<Report> reportList; //the reports
     
     /**
@@ -40,10 +40,10 @@ public class BRAJMath {
      * against dining hall traffic data
      * @return the slope of the linear regression
      */
-    public double findSlope()
+    public static double findSlope()
     {
-        double num = this.dotProduct(waitTimeData, trafficData);
-        double den = this.dotProduct(waitTimeData, waitTimeData);
+        double num = dotProduct(waitTimeData, trafficData);
+        double den = dotProduct(waitTimeData, waitTimeData);
         return num / den;
     }
     
@@ -55,7 +55,7 @@ public class BRAJMath {
      * @param y the second array
      * @return the dot product
      */
-    private double dotProduct(double[] x, double[] y)
+    private static double dotProduct(double[] x, double[] y)
     {
         double sum = 0;
         for (int i = 0; i < x.length; i++)

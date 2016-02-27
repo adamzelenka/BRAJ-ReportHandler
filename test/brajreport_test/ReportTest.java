@@ -1,5 +1,6 @@
-package brajreport;
+package brajreport_test;
 
+import brajreport.Report;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

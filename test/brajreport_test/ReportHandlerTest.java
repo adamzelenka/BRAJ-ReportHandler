@@ -1,5 +1,7 @@
-package brajreport;
+package brajreport_test;
 
+import brajreport.*;
+import brajreport.ReportHandler;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
