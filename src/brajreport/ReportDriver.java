@@ -14,7 +14,7 @@ public class ReportDriver
     public static void main(String[] args)
     {
         ReportHandler handler = new ReportHandler();
-        handler.addReport(new Report());
+        /*handler.addReport(new Report());
         System.out.println(handler.getReportAt(0).toString());
         handler.getReportAt(0).setEatery("Cutting Edge");
         handler.getReportAt(0).setDiningHall("West End");
@@ -52,10 +52,16 @@ public class ReportDriver
         }
         
         handler.clear();
-        System.out.println(handler.size());
+        System.out.println(handler.size());*/
         
-        
-        
+        handler.addReport(new Report("Wrap World", "West End", 10, 1, 16.0));
+        handler.addReport(new Report("Wrap World", "West End", 15, 2, 16.0));
+        handler.addReport(new Report("Wrap World", "West End", 20, 3, 16.0));
+        handler.addReport(new Report("Wrap World", "West End", 25, 4, 16.0));
+        handler.addReport(new Report("Wrap World", "West End", 30, 5, 16.0));
+        int traffic = 45;
+        double wait = handler.calculateWait(traffic);
+        System.out.println(wait);
     }
     
 }

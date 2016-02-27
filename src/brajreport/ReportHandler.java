@@ -86,8 +86,8 @@ public class ReportHandler {
      */
     public double calculateWait(int currentTraffic)
     {
-        BRAJMath math = new BRAJMath(reportList);
-        double estimWait = math.getEstimate(currentTraffic);
+        BRAJMath doMath = new BRAJMath(reportList);
+        double estimWait = doMath.getEstimate(currentTraffic);
         return estimWait;
     }
     

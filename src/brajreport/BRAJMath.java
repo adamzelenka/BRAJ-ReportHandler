@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class BRAJMath {
     
-    private static double[] waitTimeData; //the values of wait times
-    private static double[] trafficData;  //the values of traffic
+    private double[] waitTimeData; //the values of wait times
+    private double[] trafficData;  //the values of traffic
     private ArrayList<Report> reportList; //the reports
     
     
@@ -27,13 +27,13 @@ public class BRAJMath {
     public BRAJMath(ArrayList<Report> reportList)
     {
         this.reportList = reportList;
-        int size = reportList.size();
+        int size = this.reportList.size();
         this.waitTimeData = new double[size];
         this.trafficData = new double[size];
         for (int i = 0; i < size; i++)
         {
-            this.waitTimeData[i] = (double)reportList.get(i).getWaitTime();
-            this.trafficData[i] = (double)reportList.get(i).getTraffic();
+            this.waitTimeData[i] = (double)this.reportList.get(i).getWaitTime();
+            this.trafficData[i] = (double)this.reportList.get(i).getTraffic();
         }
     }
     
@@ -45,7 +45,8 @@ public class BRAJMath {
      */
     public double getEstimate(int traffic)
     {
-        return traffic * findSlope();
+        
+        return traffic * this.findSlope();
     }
     /**
      * Computes a slope of a linear regression of wait times scattered 
@@ -54,8 +55,8 @@ public class BRAJMath {
      */
     private double findSlope()
     {
-        double num = dotProduct(waitTimeData, trafficData);
-        double den = dotProduct(waitTimeData, waitTimeData);
+        double num = dotProduct(this.waitTimeData, this.trafficData);
+        double den = dotProduct(this.trafficData, this.trafficData);
         return num / den;
     }
     
