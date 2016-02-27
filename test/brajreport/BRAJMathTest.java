@@ -1,9 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package brajreport;
+/**
+ * BRAJMatTesth.java
+ *
+ * Tests to see if BRAJMath correctly computes regression for wait time data
+ *
+ * @author Robert Schofield
+ * @author James McCray
+ * @author Adam Zelenka
+ * @author Brady Reisch
+ * @version February 27, 2016: pre-alpha
+ */
 
 import org.junit.After;
 import org.junit.AfterClass;
