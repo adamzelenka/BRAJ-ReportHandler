@@ -151,7 +151,7 @@ public class Report {
     {
         return "Dining Hall: " + this.diningHall + "\nEatery: " + this.eatery + 
                 "\nTime: [" + this.timeOfDay + "]\nPeople in the dining hall: " 
-                + this.traffic + "\nWait time: " + this.waitTime;
+                + this.traffic + "\nWait time: " + this.waitTime + "minutes\n";
     }
     
     /**

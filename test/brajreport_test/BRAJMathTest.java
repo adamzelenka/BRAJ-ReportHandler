@@ -35,6 +35,11 @@ public class BRAJMathTest {
     public static void setUpClass() 
     {
         ArrayList<Report> reportList = new ArrayList<Report>();
+        reportList.add(new Report("Wrap World", "West End", 50, 6, 15.5));
+        reportList.add(new Report("Wrap World", "West End", 50, 6, 15.5));
+        reportList.add(new Report("Wrap World", "West End", 50, 6, 15.5));
+        reportList.add(new Report("Wrap World", "West End", 50, 6, 15.5));
+        reportList.add(new Report("Wrap World", "West End", 50, 6, 15.5));
         BRAJMath math = new BRAJMath(reportList);
     }
     

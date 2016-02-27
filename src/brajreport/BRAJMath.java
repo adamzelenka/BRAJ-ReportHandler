@@ -17,6 +17,8 @@ public class BRAJMath {
     private static double[] trafficData;  //the values of traffic
     private ArrayList<Report> reportList; //the reports
     
+    
+    
     /**
      * Constructor for BRAJMath object. Instantiates the report list and 
      * parses data 
@@ -36,11 +38,21 @@ public class BRAJMath {
     }
     
     /**
+     * Gives an estimated wait time for the eatery based on the current number
+     * of people in the dining hall
+     * @param traffic the number of people in the dining hall
+     * @return the estimated wait time
+     */
+    public double getEstimate(int traffic)
+    {
+        return traffic * findSlope();
+    }
+    /**
      * Computes a slope of a linear regression of wait times scattered 
      * against dining hall traffic data
      * @return the slope of the linear regression
      */
-    public static double findSlope()
+    private double findSlope()
     {
         double num = dotProduct(waitTimeData, trafficData);
         double den = dotProduct(waitTimeData, waitTimeData);
@@ -55,7 +67,7 @@ public class BRAJMath {
      * @param y the second array
      * @return the dot product
      */
-    private static double dotProduct(double[] x, double[] y)
+    private double dotProduct(double[] x, double[] y)
     {
         double sum = 0;
         for (int i = 0; i < x.length; i++)

@@ -15,14 +15,31 @@ import java.util.ArrayList;
 public class ReportHandler {
     
     //the list of Report objects
-    private ArrayList<Report> reportList = new ArrayList<Report>();
-    
+    private ArrayList<Report> reportList;
+       
     /**
      * Empty constructor for the ReportHandler object
      */
     public ReportHandler()
     {
-        //This is an empty constructor
+        reportList = new ArrayList<Report>();
+    }
+    
+    /**
+     * Gives the report at a given index
+     * @param i the given index
+     * @return the report located at the given index
+     */
+    public Report getReportAt(int i)
+    {
+        if ( !reportList.isEmpty() && i >= 0 && i < reportList.size())
+        {
+            return reportList.get(i);
+        }
+        else
+        {
+            return null;
+        }
     }
     
     /**
@@ -32,33 +49,72 @@ public class ReportHandler {
     public void addReport(Report report)
     {
         reportList.add(report);
+        if ( reportList.size() == 500 )
+        {
+            reportList.remove(0);
+        }
     }
     
     /**
-     * 
-     * @param report
-     * @return 
+     * Removes a specific report from the list of reports
+     * @param report the target report for removal
+     * @return whether the report was removed successfully
      */
     public boolean removeReport(Report report)
     {
-        return reportList.remove(report);
-        
+        if ( !reportList.isEmpty())
+        {
+            reportList.remove(report);
+            return true;
+        }
+        return false;
     }
     
+    /**
+     * Clears all reports from the list
+     */
     public void clear()
     {
         reportList.clear();
     }
     
-    public ArrayList<Report> makeSomeRoom()
+    /**
+     * Gives an up-to-date estimate of wait time for the eatery based on the 
+     * latest traffic report.
+     * @param currentTraffic - the traffic as last relayed from CNS
+     * @return the estimated wait time for the eatery
+     */
+    public double calculateWait(int currentTraffic)
     {
-        ArrayList<Report> removed = new ArrayList<Report>();
-        for ( int i = 0; i < 20; i++)
-        {
-            removed.add(reportList.remove(i));
-        }
-        return removed;
+        BRAJMath math = new BRAJMath(reportList);
+        double estimWait = math.getEstimate(currentTraffic);
+        return estimWait;
     }
     
+    /**
+     * Gives the number of reports in the handler
+     * @return the number of reports in the handler
+     */
+    public int size()
+    {
+        return reportList.size();
+    }
     
+    /**
+     * Gives a String representation of the report handler
+     * @return the String representation of the report handler
+     */
+    public String toString()
+    {
+        String result = "";
+        if ( !reportList.isEmpty())
+        {
+             for (Report rep : reportList)
+            {
+                result += rep.toString() + "\n";
+            }
+        }
+        result += "----------\n";
+        return result;
+    }
 }
