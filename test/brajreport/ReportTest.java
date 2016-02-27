@@ -53,6 +53,8 @@ public class ReportTest {
         fail("The test case is a prototype.");
     }
 
+    //Add testGetDiningHall() method!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     /**
      * Test of getTraffic method, of class Report.
      */

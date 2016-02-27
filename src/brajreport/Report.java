@@ -16,6 +16,7 @@ package brajreport;
 public class Report {
     
     private String eatery; //the eatery for which the user stood in line
+    private String diningHall; //the dining hall at which the eatery is located
     private int traffic;   //the number of people in the dining hall, taken from 
                            //the most recent CNS report
     private double timeOfDay; //hours since midnight of the current day
@@ -24,13 +25,16 @@ public class Report {
     /**
      * Constructor for Report object
      * @param eatery the eatery for which the user stood in line
+     * @param diningHall the dining hall at which the eatery is located
      * @param traffic the number of people in the dining hall
      * @param waitTime hours since midnight of the current day
      * @param timeOfDay number of minutes spent waiting in line
      */
-    public Report(String eatery, int traffic, int waitTime, double timeOfDay)
+    public Report(String eatery, String diningHall, int traffic, int waitTime, 
+            double timeOfDay)
     {
         this.eatery = eatery;
+        this.diningHall = diningHall;
         this.traffic = traffic;
         this.waitTime = waitTime;
         this.timeOfDay = timeOfDay; 
@@ -42,6 +46,7 @@ public class Report {
     public Report()
     {
         this.eatery = "";
+        this.diningHall = "";
         this.traffic = 0;
         this.waitTime = 0;
         this.timeOfDay = 0.0;
@@ -54,6 +59,15 @@ public class Report {
     public String getEatery()
     {
         return eatery;
+    }
+    
+    /**
+     * Gets the dining hall
+     * @return the dining hall at which the eatery is located
+     */
+    public String getDiningHall()
+    {
+        return diningHall;
     }
     
     /**
@@ -93,6 +107,15 @@ public class Report {
     }
     
     /**
+     * Sets the dining hall to a given name
+     * @param dining the dining hall at which the eatery is located
+     */
+    public void setDiningHall(String dining)
+    {
+        this.diningHall = dining;
+    }
+    
+    /**
      * Sets the traffic to a given value
      * @param traf the number of people in the dining hall
      */
@@ -126,9 +149,9 @@ public class Report {
     @Override
     public String toString()
     {
-        return "Eatery: " + this.eatery + "\nTime: [" + this.timeOfDay + 
-                "]\nPeople in the dining hall: " + this.traffic + 
-                "\nWait time: " + this.waitTime;
+        return "Dining Hall: " + this.diningHall + "\nEatery: " + this.eatery + 
+                "\nTime: [" + this.timeOfDay + "]\nPeople in the dining hall: " 
+                + this.traffic + "\nWait time: " + this.waitTime;
     }
     
     /**
@@ -142,8 +165,9 @@ public class Report {
         if (o == null) { return false; }
         else if (o instanceof Report)
         {
-            if (this.eatery.equals(((Report)o).getEatery()) && 
-                this.traffic == ((Report)o).getTraffic() && 
+            if (this.diningHall.equals(((Report)o).getDiningHall()) && 
+                    this.eatery.equals(((Report)o).getEatery()) && 
+                    this.traffic == ((Report)o).getTraffic() && 
                     this.waitTime == ((Report)o).getWaitTime() &&
                     this.timeOfDay == ((Report)o).getTimeOfDay())
             {
