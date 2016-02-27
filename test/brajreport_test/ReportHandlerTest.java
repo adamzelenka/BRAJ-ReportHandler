@@ -26,6 +26,8 @@ public class ReportHandlerTest {
     public ReportHandlerTest() {
     }
     
+    
+    //COMMENT!
     @BeforeClass
     public static void setUpClass() {
     }
