@@ -143,18 +143,6 @@ public class Report {
     }
     
     /**
-     * Creates a String representation of the Report object
-     * @return the String representation of the Report object
-     */
-    @Override
-    public String toString()
-    {
-        return "Dining Hall: " + this.diningHall + "\nEatery: " + this.eatery + 
-                "\nTime: [" + this.timeOfDay + "]\nPeople in the dining hall: " 
-                + this.traffic + "\nWait time: " + this.waitTime + "minutes\n";
-    }
-    
-    /**
      * Determines if the Report object is equal to another object
      * @param o the other object
      * @return true if the reports are equal, false if otherwise
@@ -181,6 +169,17 @@ public class Report {
         else { return false; }
     }
     
+    /**
+     * Creates a String representation of the Report object
+     * @return the String representation of the Report object
+     */
+    @Override
+    public String toString()
+    {
+        return "Dining Hall: " + this.diningHall + "\nEatery: " + this.eatery + 
+                "\nTime: [" + this.timeOfDay + "]\nPeople in the dining hall: " 
+                + this.traffic + "\nWait time: " + this.waitTime + "minutes\n";
+    }
     
     
 }
