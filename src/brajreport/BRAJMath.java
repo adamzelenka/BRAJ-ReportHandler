@@ -48,12 +48,12 @@ public class BRAJMath {
     }
     
     /**
-     * Computes the dot product of two arrays
+     * Computes the dot product of two arrays of doubles
      * 
      * pre: arrays are of the same length
-     * @param x
-     * @param y
-     * @return 
+     * @param x the first array
+     * @param y the second array
+     * @return the dot product
      */
     private double dotProduct(double[] x, double[] y)
     {
@@ -64,5 +64,7 @@ public class BRAJMath {
         }
         return sum;
     }
+    
+    
     
 }
