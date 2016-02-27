@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class BRAJMath {
     
-    private double[] waitTimeData;
-    private double[] trafficData;
-    private ArrayList<Report> reportList;
+    private double[] waitTimeData; //the values of wait times
+    private double[] trafficData;  //the values of traffic
+    private ArrayList<Report> reportList; //the reports
     
     /**
      * Constructor for BRAJMath object. Instantiates the report list and 
