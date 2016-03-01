@@ -82,12 +82,13 @@ public class ReportHandler {
      * Gives an up-to-date estimate of wait time for the eatery based on the 
      * latest traffic report.
      * @param currentTraffic - the traffic as last relayed from CNS
+     * @param currentTime - the time of day, hours since midnight
      * @return the estimated wait time for the eatery
      */
-    public double calculateWait(int currentTraffic)
+    public double calculateWait(int currentTraffic, double currentTime)
     {
         BRAJMath doMath = new BRAJMath(reportList);
-        double estimWait = doMath.getEstimate(currentTraffic);
+        double estimWait = doMath.getEstimate(currentTraffic, currentTime);
         return estimWait;
     }
     
