@@ -49,8 +49,10 @@ public class BRAJMath {
      */
     public double getEstimate(int traffic, double time)
     {
-        
-        return findCoef()[0] + traffic * findCoef()[1] + time * findCoef()[2];
+        double[] slopes = findCoef();
+        System.out.println(slopes[0] + " " + slopes[1] + " " + slopes[2]);
+        double estim = slopes[0] + traffic * slopes[1] + time * slopes[2];
+        return estim;
     }
     /**
      * Computes a slope of a linear regression of wait times scattered 
@@ -67,10 +69,25 @@ public class BRAJMath {
                 (dotProduct(x1, x2) * dotProduct(x2, y));
         double den1 = (dotProduct(x1, x1) * dotProduct(x2, x2)) - 
                 (dotProduct(x1, x2) * dotProduct(x1, x2));
-        slopes[1] = num1 / den1;
+        if (num1 == 0.0 || den1 == 0.0)
+        {
+            slopes[1] = 0.0;
+        }
+        else
+        {
+            slopes[1] = num1 / den1;
+        }
         double num2 = (dotProduct(x1, x1) * dotProduct(x2, y)) - 
                 (dotProduct(x1, x2) * dotProduct(x1, y));
-        slopes[2] = num2 / den1;
+        if (num2 == 0.0 || den1 == 0.0)
+        {
+            slopes[2] = 0.0;
+        }
+        else
+        {
+            slopes[2] = num2 / den1;
+        }
+       
         slopes[0] = computeMean(y) - slopes[1] * computeMean(x1) - 
                 slopes[2] * computeMean(x2);
         return slopes;

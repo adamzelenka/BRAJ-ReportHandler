@@ -54,13 +54,18 @@ public class ReportDriver
         handler.clear();
         System.out.println(handler.size());*/
         
-        handler.addReport(new Report("Wrap World", "West End", 45, 5, 16.0));
-        handler.addReport(new Report("Wrap World", "West End", 45, 5, 16.0));
-        handler.addReport(new Report("Wrap World", "West End", 45, 5, 16.0));
-        handler.addReport(new Report("Wrap World", "West End", 45, 5, 16.0));
-        handler.addReport(new Report("Wrap World", "West End", 45, 5, 16.0));
+        handler.addReport(new Report("Wrap World", "West End", 34, 8, 15.0));
+        handler.addReport(new Report("Wrap World", "West End", 46, 7, 15.25));
+        handler.addReport(new Report("Wrap World", "West End", 59, 11, 14.5));
+        handler.addReport(new Report("Wrap World", "West End", 20, 3, 10.0));
+        handler.addReport(new Report("Wrap World", "West End", 101, 15, 12.5));
+        handler.addReport(new Report("Wrap World", "West End", 60, 9, 13.1));
+        handler.addReport(new Report("Wrap World", "West End", 110, 20, 11.75));
+        handler.addReport(new Report("Wrap World", "West End", 16, 1, 16.0));
+        handler.addReport(new Report("Wrap World", "West End", 38, 5, 16.2));
+        handler.addReport(new Report("Wrap World", "West End", 40, 6, 17.0));
         int traffic = 45;
-        double timeDay = 16.0;
+        double timeDay = 12.0;
         double wait = handler.calculateWait(traffic, timeDay);
         System.out.println(wait);
     }
